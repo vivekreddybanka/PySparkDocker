@@ -21,9 +21,6 @@ RUN pip install jupyter-tensorboard
 
 # Setup jupyter to avoid tokens/passwords
 USER root
-# RUN apt-get install --reinstall tzdata \
-#     && timedatectl status \
-#     && timedatectl set-timezone America/Chicago
 RUN apt-get update \
     && apt-get install -y --no-install-recommends curl graphviz \
     && apt-get -y clean \
