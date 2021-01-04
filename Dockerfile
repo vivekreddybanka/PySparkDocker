@@ -19,13 +19,13 @@ RUN conda install -y -c conda-forge pydotplus
 RUN conda install -y -c conda-forge tensorflow
 RUN pip install jupyter-tensorboard
 
-# Setup jupyter to avoid tokens/passwords
+# Setup avoid tokens/passwords
 USER root
 RUN apt-get update \
     && apt-get install -y --no-install-recommends curl graphviz \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/*
-
+# setup for the jupyter notebook
 RUN mkdir -p /home/jovyan/.jupyter
 RUN chown jovyan:users /home/jovyan/.jupyter
 WORKDIR /home/jovyan/.jupyter
